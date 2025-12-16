@@ -7,120 +7,116 @@
   --text: #2B2622;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  width: 100%;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  padding: 14px 45px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+
+
+.navbar{
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--accent);
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  /* NEW */
-  animation: navbarReveal 0.7s ease-out forwards;
+  padding: 18px 40px;
+  background: rgba(255,235,224,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-@keyframes navbarReveal {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ============================= */
+/* LOGO */
+/* ============================= */
 
-/* ===== LOGO ===== */
-.logo {
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--text);
+.logo{
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
   letter-spacing: 1px;
   cursor: pointer;
-
-  /* smoother hover */
-  transition: transform 0.25s ease, color 0.25s ease;
+  transition: transform .25s ease;
 }
 
-.logo:hover {
-  transform: scale(1.04);
+.logo:hover{
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+
+.links{
+  display: flex;
+  gap: 28px;
+}
+
+.links a{
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color .25s ease;
+}
+
+.links a:hover{
   color: var(--primary);
 }
 
-/* ===== LINKS ===== */
-.links {
-  display: flex;
-  gap: 32px;
-}
-
-.links a {
-  text-decoration: none;
-  color: var(--secondary);
-  font-size: 16px;
-  font-weight: 500;
-  position: relative;
-
-  transition: color 0.25s ease;
-}
-
-/* underline grows like plating food */
-.links a::after {
+/* underline animation */
+.links a::after{
   content: "";
   position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: var(--primary);
   left: 0;
   bottom: -6px;
-
-  transition: width 0.35s ease;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width .3s ease;
 }
 
-.links a:hover {
-  color: var(--primary);
-}
-
-.links a:hover::after {
+.links a:hover::after{
   width: 100%;
 }
 
-/* ===== BUTTON ===== */
-.start-btn {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
-  color: var(--text);
-  padding: 11px 28px;
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.start-btn{
+  padding: 10px 22px;
   border: none;
-  border-radius: 28px;
-  font-size: 15px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #f79ca9, #ffb3c1);
+  color: white;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-
-  /* NEW: subtle pulse */
-  animation: softPulse 2.8s infinite;
+  box-shadow: 0 6px 18px rgba(247,156,169,.45);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-@keyframes softPulse {
-  0% {
-    box-shadow: 0 6px 14px rgba(247,156,169,0.35);
-  }
-  50% {
-    box-shadow: 0 6px 22px rgba(247,156,169,0.55);
-  }
-  100% {
-    box-shadow: 0 6px 14px rgba(247,156,169,0.35);
-  }
+.start-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(247,156,169,.55);
 }
 
-.start-btn:hover {
-  transform: translateY(-2px) scale(1.04);
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px){
+  .navbar{
+    padding: 14px 20px;
+  }
+
+  .links{
+    display: none; /* clean mobile */
+  }
 }
