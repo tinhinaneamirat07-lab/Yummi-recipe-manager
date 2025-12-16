@@ -1,0 +1,127 @@
+:root {
+  --primary:   #4B3F72;
+  --bg:        #F3F1F5;
+  --secondary: #F79CA9;
+  --accent:    #FFDAC1;
+  --soft:      #6C8C57;
+  --text:      #2B2622;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background-color: var(--bg);
+
+  /* smoother entrance */
+  animation: heroFade 0.8s ease-out forwards;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* TITLES (ReactBits style) */
+/* ============================= */
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation: textReveal 0.8s ease-out forwards;
+}
+
+.hero h1:nth-of-type(1) {
+  color: var(--accent);
+  animation-delay: 0.2s;
+}
+
+.hero h1:nth-of-type(2) {
+  margin-bottom: 15px;
+  color: var(--secondary);
+  animation-delay: 0.4s;
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* SUBTITLE (blur → clear) */
+/* ============================= */
+
+.hero h2 {
+  max-width: 750px;
+  margin: 10px auto 25px;
+  font-size: 22px;
+  color: var(--text);
+  opacity: 0;
+  filter: blur(6px);
+
+  animation: subtitleReveal 0.9s ease forwards;
+  animation-delay: 0.65s;
+}
+
+@keyframes subtitleReveal {
+  to {
+    opacity: 0.9;
+    filter: blur(0);
+  }
+}
+
+/* ============================= */
+/* SEARCH INPUT */
+/* ============================= */
+
+.hero input {
+  padding: 12px 20px;
+  width: 320px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid var(--accent);
+  background-color: var(--primary);
+  color: var(--text);
+
+  opacity: 0;
+  transform: translateY(16px);
+
+  animation: inputRise 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@keyframes inputRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero input::placeholder {
+  color: #bfa6c7;
+}
+
+.hero input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 14px rgba(255, 218, 193, 0.9);
+  transform: scale(1.04);
+}

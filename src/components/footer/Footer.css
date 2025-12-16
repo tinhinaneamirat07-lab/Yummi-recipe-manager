@@ -1,0 +1,63 @@
+:root {
+  --primary: #4B3F72;    /* deep pastel purple */
+  --secondary: #F79CA9;  /* soft pastel pink */
+  --accent: #FFDAC1;     /* pastel peach */
+  --soft: #BFD8B8;       /* soft green */
+  --highlight: #92ADA4;  /* pastel teal */
+  --bg: #F3F1F5;         /* light pastel background */
+}
+.footer {
+  background: linear-gradient(135deg, var(--accent), var(--soft));
+  color: var(--primary);
+  padding: 50px 20px;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-logo h2 {
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.footer-logo p {
+  color: var(--highlight);
+  font-size: 14px;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-links a,
+.footer-social a {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: var(--secondary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--highlight);
+  text-align: center;
+  padding-top: 15px;
+  margin-top: 30px;
+  color: var(--primary);
+}

@@ -1,0 +1,126 @@
+:root {
+  --primary: #4B3F72;
+  --bg: #F3F1F5;
+  --secondary: #F79CA9;
+  --accent: #FFDAC1;
+  --soft: #6C8C57;
+  --text: #2B2622;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 14px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--accent);
+
+  /* NEW */
+  animation: navbarReveal 0.7s ease-out forwards;
+}
+
+@keyframes navbarReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== LOGO ===== */
+.logo {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  /* smoother hover */
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.logo:hover {
+  transform: scale(1.04);
+  color: var(--primary);
+}
+
+/* ===== LINKS ===== */
+.links {
+  display: flex;
+  gap: 32px;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+
+  transition: color 0.25s ease;
+}
+
+/* underline grows like plating food */
+.links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  left: 0;
+  bottom: -6px;
+
+  transition: width 0.35s ease;
+}
+
+.links a:hover {
+  color: var(--primary);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* ===== BUTTON ===== */
+.start-btn {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--text);
+  padding: 11px 28px;
+  border: none;
+  border-radius: 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  /* NEW: subtle pulse */
+  animation: softPulse 2.8s infinite;
+}
+
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 6px 14px rgba(247,156,169,0.35);
+  }
+  50% {
+    box-shadow: 0 6px 22px rgba(247,156,169,0.55);
+  }
+  100% {
+    box-shadow: 0 6px 14px rgba(247,156,169,0.35);
+  }
+}
+
+.start-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+}

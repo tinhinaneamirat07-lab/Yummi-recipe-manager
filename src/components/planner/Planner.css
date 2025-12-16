@@ -1,0 +1,105 @@
+:root {
+  --primary:   #4B3F72;   
+  --bg:        #F3F1F5;   
+  --secondary: #F79CA9;   
+  --accent:    #FFDAC1;  
+  --soft:      #6C8C57;   
+  --text:      #2B2622;   
+   --card-bg: #FFEBE0;
+}
+
+.planner {
+  background-color: var(--bg);
+  padding: 50px 50px;
+  
+}
+  
+.planner-todolist {
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  
+}
+
+.planner-todolist .title {
+  color: var(--accent);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.planner-todolist .subtitle {
+  text-align: center;
+  color: var(--soft);
+  margin-bottom: 30px;
+}
+
+.todolist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--soft);
+  outline: none;
+  font-size: 1rem;
+  background-color: #E6E0EA; 
+  color: var(--text);
+}
+
+.recipe-form button {
+  background-color: var(--secondary);
+  color: var(--bg);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.recipe-form button:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+}
+
+.recipe-list {
+  margin-top: 20px;
+}
+
+.empty-text {
+  color: var(--soft);
+  text-align: center;
+}
+
+.recipe-item {
+ background-color: var(--accent); 
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  color: var(--primary); 
+  color: var(--text);
+   background-color: var(--card-bg);
+  color: var(--primary);
+}
+
+.recipe-item h3 {
+  margin-bottom: 5px;
+  color: var(--secondary);
+}
+
+.recipe-item p {
+  margin: 3px 0;
+}
