@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 // components
 import Navbar from "./components/navbar/Navbar"
-import Hero from "./components/hero/Hero"
-import Features from "./components/features/Features"
+import Hero from "./components/Hero/Hero"
 import Recipes from "./components/recipes/Recipes"
 import Footer from "./components/footer/Footer"
 
@@ -32,13 +31,7 @@ function App() {
             <>
               <Hero />
 
-              <Features
-                images={{
-                  features1,
-                  features2,
-                  france,
-                }}
-              />
+             
 
               <Recipes />
 

@@ -3,69 +3,111 @@ import "./Planner.css";
 
 export default function Planner() {
   const [recipes, setRecipes] = useState([]);
-  const [name, setName] = useState("");
-  const [time, setTime] = useState("");
-  const [ingredients, setIngredients] = useState("");
+
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    category: "",
+    image: "",
+    prepTime: "",
+    cookTime: "",
+    servings: "",
+    ingredients: "",
+    instructions: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newRecipe = {
-      name,
-      time,
-      ingredients: ingredients.split(",").map((i) => i.trim()),
+      ...form,
+      ingredients: form.ingredients.split(",").map((i) => i.trim()),
     };
+
     setRecipes([...recipes, newRecipe]);
-    setName("");
-    setTime("");
-    setIngredients("");
+
+    setForm({
+      title: "",
+      description: "",
+      category: "",
+      image: "",
+      prepTime: "",
+      cookTime: "",
+      servings: "",
+      ingredients: "",
+      instructions: "",
+    });
   };
 
   return (
-    <div className="planner"> 
-    <section className="planner-todolist">
-      <h1 className="title">Add Recipe</h1>
-      <p className="subtitle">Add your recipes, cooking time, and ingredients</p>
+    <div className="planner">
+      <div className="planner-container">
 
-      <div className="todolist-container">
-        <form className="recipe-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Recipe Name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Cooking Time"
-            required
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-          <textarea
-            placeholder="Ingredients (comma separated)"
-            required
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-          />
-          <button type="submit">Add Recipe</button>
+        <header className="planner-header">
+          <h1>Meal Planner</h1>
+          <p>Create and organize your own recipes 🍽️</p>
+        </header>
+
+        <form className="planner-form" onSubmit={handleSubmit}>
+          <input name="title" placeholder="Recipe title" value={form.title} onChange={handleChange} required />
+          <input name="image" placeholder="Image URL" value={form.image} onChange={handleChange} required />
+
+          <select name="category" value={form.category} onChange={handleChange} required>
+            <option value="">Category</option>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Dessert</option>
+          </select>
+
+          <textarea name="description" placeholder="Short description" value={form.description} onChange={handleChange} />
+
+          <div className="time-row">
+            <input name="prepTime" placeholder="Prep time" value={form.prepTime} onChange={handleChange} />
+            <input name="cookTime" placeholder="Cook time" value={form.cookTime} onChange={handleChange} />
+            <input name="servings" placeholder="Servings" value={form.servings} onChange={handleChange} />
+          </div>
+
+          <textarea name="ingredients" placeholder="Ingredients (comma separated)" value={form.ingredients} onChange={handleChange} />
+          <textarea name="instructions" placeholder="Instructions" value={form.instructions} onChange={handleChange} />
+
+          <button>Add Recipe</button>
         </form>
 
-        <div className="recipe-list">
-          {recipes.length === 0 ? (
-            <p className="empty-text">Your recipes will appear here...</p>
-          ) : (
-            recipes.map((recipe, index) => (
-              <div key={index} className="recipe-item">
-                <h3>{recipe.name}</h3>
-                <p><strong>Time:</strong> {recipe.time}</p>
-                <p><strong>Ingredients:</strong> {recipe.ingredients.join(", ")}</p>
+        <section className="planner-grid">
+          {recipes.map((r, i) => (
+            <div className="planner-card" key={i}>
+              <div className="planner-image" style={{ backgroundImage: `url(${r.image})` }}>
+                <span>{r.category}</span>
               </div>
-            ))
-          )}
-        </div>
+
+              <div className="planner-content">
+                <h3>{r.title}</h3>
+                <p>{r.description}</p>
+
+                <div className="meta">
+                  <span>⏱ {r.prepTime}</span>
+                  <span>🔥 {r.cookTime}</span>
+                  <span>👥 {r.servings}</span>
+                </div>
+
+                <strong>Ingredients</strong>
+                <ul>
+                  {r.ingredients.map((ing, idx) => <li key={idx}>{ing}</li>)}
+                </ul>
+
+                <strong>Instructions</strong>
+                <p>{r.instructions}</p>
+              </div>
+            </div>
+          ))}
+        </section>
+
       </div>
-    </section>
     </div>
   );
 }

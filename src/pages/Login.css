@@ -1,144 +1,97 @@
-:root {
-  --primary:   #A49C87;  /* Grullo */
-  --secondary: #F198AA;  /* Mauvelous */
-  --accent:    #ECC5B2;  /* Desert Sand */
-  --soft:      #CCA69A;  /* Khaki */
-  --highlight: #CC5769;  /* Indian Red */
-  --bg:        #FAF8F6;
-  --text:      #5F5A55;
-}
-
-
-/* ============================= */
-/* PAGE */
-/* ============================= */
-
-.login-page {
+.login {
   min-height: 100vh;
-  background: linear-gradient(
-    180deg,
-    var(--accent),
-    var(--bg)
-  );
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    var(--buttercream),
+    var(--meringe)
+  );
 }
 
-/* ============================= */
-/* CARD */
-/* ============================= */
-
-.login-card {
-  width: 360px;
-  padding: 36px 32px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(14px);
-  border-radius: 26px;
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.08),
-    0 8px 20px rgba(0,0,0,0.06);
+.login-box {
+  width: 380px;
+  padding: 42px 36px;
+  background: white;
+  border-radius: 28px;
 
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
 
-  animation: popIn .5s ease;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.2);
 }
 
-/* ============================= */
-/* TITLE */
-/* ============================= */
-
-.login-card h2 {
+.login-box h2 {
   text-align: center;
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 6px;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--blueberry);
+  margin: 0;
 }
 
-/* ============================= */
-/* INPUTS */
-/* ============================= */
-
-.login-card input {
-  height: 46px;
-  padding: 0 16px;
-  border-radius: 14px;
-  border: none;
-  outline: none;
-
-  background: var(--bg);
-  color: var(--text);
+.login-box p {
+  text-align: center;
   font-size: 14px;
-
-  transition: box-shadow .25s ease, transform .25s ease;
+  color: #666;
 }
 
-.login-card input::placeholder {
-  color: #9A948F;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.login-card input:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-/* ============================= */
-/* BUTTON */
-/* ============================= */
-
-.login-card button {
-  height: 46px;
-  margin-top: 6px;
-
-  border: none;
+.login-form input {
+  height: 52px;
+  padding: 0 18px;
   border-radius: 16px;
+  border: none;
+  background: var(--buttercream);
+  font-size: 14px;
+}
+
+.login-form button {
+  height: 52px;
+  border: none;
+  border-radius: 999px;
 
   background: linear-gradient(
     135deg,
-    var(--secondary),
-    var(--highlight)
+    var(--strawberry),
+    var(--violet)
   );
 
   color: white;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   cursor: pointer;
 
-  box-shadow: 0 10px 25px rgba(241,152,170,.35);
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 14px 30px rgba(192,57,43,0.35);
 }
 
-.login-card button:hover {
+.login-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(241,152,170,.45);
+  box-shadow: 0 22px 45px rgba(192,57,43,0.45);
 }
 
-/* ============================= */
-/* ANIMATION */
-/* ============================= */
-
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.login-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
 }
 
-/* ============================= */
-/* MOBILE */
-/* ============================= */
+.login-footer a {
+  color: var(--strawberry);
+  font-weight: 700;
+  text-decoration: none;
+}
 
 @media (max-width: 420px) {
-  .login-card {
+  .login-box {
     width: 90%;
-    padding: 30px 24px;
+    padding: 36px 26px;
   }
 }
