@@ -11,17 +11,17 @@ export default function HeroFeatures() {
   const features = [
     {
       id: "sweet-recipes",
-      img: "src/assets/pics/ChocolateChipCookies .jpeg",
+      img:"public/Pics/ChocolateChipCookies .jpeg" ,
       title: "Sweet",
     },
     {
       id: "savory-recipes",
-      img: "src/assets/pics/Features2.jpeg",
+      img: "public/Pics/Features2.jpeg",
       title: "Savory",
     },
     {
       id: "baking-recipes",
-      img: "src/assets/pics/Features1.jpg",
+      img: "public/Pics/Features1.jpeg",
       title: "Baking",
     },
   ];
@@ -52,8 +52,10 @@ export default function HeroFeatures() {
               <h3>{f.title}</h3>
             </div>
           </a>
+          
         ))}
       </div>
     </section>
+    
   );
 }
