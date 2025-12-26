@@ -1,10 +1,12 @@
 :root {
-  --blueberry:  #2C3F70;
-  --strawberry: #C0392B;
-  --buttercream:#F3F1EC;
-  --violet:     #7D86D9;
-  --meringe:    #FAFAFA;
-  --text-dark:  #2B2B2B;
+  --olive-dark: #5F6F52;
+  --olive: #A9B388;
+  --cornsilk: #FEFAE0;
+  --lemon: #F9EBC7;
+  --camel: #B99470;
+  --orange: #C4661F;
+  --russet: #783D19;
+  --text-dark: #3a3a3a;
 }
 
 /* ============================= */
@@ -15,7 +17,7 @@
   background:
     linear-gradient(
       180deg,
-      #f3f1ec,
+      var(--cornsilk),
       #ffffff
     );
   padding: 80px 30px 30px;
@@ -34,7 +36,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(0,0,0,0.15),
+    rgba(95,111,82,0.25),
     transparent
   );
   transform: translateX(-50%);
@@ -60,15 +62,16 @@
 .footer-logo h2 {
   font-size: 28px;
   font-weight: 900;
-  color: var(--strawberry);
+  color: var(--russet);
   margin-bottom: 10px;
 }
 
 .footer-logo p {
   font-size: 14px;
-  color: #666;
+  color: var(--olive-dark);
   max-width: 260px;
   line-height: 1.7;
+  opacity: 0.85;
 }
 
 /* ============================= */
@@ -79,7 +82,7 @@
 .footer-social h4 {
   font-size: 16px;
   margin-bottom: 18px;
-  color: var(--blueberry);
+  color: var(--olive-dark);
   font-weight: 800;
 }
 
@@ -89,9 +92,9 @@
   margin-bottom: 12px;
   text-decoration: none;
 
-  color: var(--text-dark);
+  color: var(--olive-dark);
   font-size: 14px;
-  opacity: 0.85;
+  opacity: 0.8;
 
   transition:
     color .25s ease,
@@ -101,7 +104,7 @@
 
 .footer-links a:hover,
 .footer-social a:hover {
-  color: var(--strawberry);
+  color: var(--orange);
   transform: translateX(6px);
   opacity: 1;
 }
@@ -113,11 +116,12 @@
 .footer-bottom {
   margin-top: 60px;
   padding-top: 20px;
-  border-top: 1px solid rgba(0,0,0,0.12);
+  border-top: 1px solid rgba(95,111,82,0.25);
 
   text-align: center;
   font-size: 13px;
-  color: #555;
+  color: var(--olive-dark);
+  opacity: 0.75;
 }
 
 /* ============================= */

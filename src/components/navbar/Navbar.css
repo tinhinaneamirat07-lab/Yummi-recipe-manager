@@ -1,39 +1,135 @@
-.navbar{
+:root {
+  --olive-dark: #5F6F52;
+  --olive: #A9B388;
+  --cornsilk: #FEFAE0;
+  --lemon: #F9EBC7;
+  --camel: #B99470;
+  --orange: #C4661F;
+  --russet: #783D19;
+  --text-dark: #3a3a3a;
+}
+
+.navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 80px);
+  max-width: 1200px;
   z-index: 1000;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 18px 40px;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(12px);
+  padding: 12px 32px;
+
+  background: rgba(254, 250, 224, 0.85);
+  backdrop-filter: blur(16px);
+
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(95, 111, 82, 0.25);
+
+  transition: background 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.3s ease;
 }
 
-.logo{
-  font-size: 26px;
+/* LOGO */
+.logo {
+  font-size: 24px;
   font-weight: 900;
-  color: var(--strawberry);
+  color: var(--russet);
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
-.links{
+/* LINKS */
+.links {
   display: flex;
   gap: 28px;
 }
 
-.links a{
-  color: var(--text-dark);
+.links a {
+  position: relative;
+  color: var(--olive-dark);
   font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
-.start-btn{
-  padding: 10px 22px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, var(--strawberry), var(--violet));
+.links a:hover {
+  opacity: 1;
+  color: var(--russet);
+}
+
+/* DOT */
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.25s ease;
+}
+
+.links a:hover::after,
+.links a.active::after {
+  transform: translateX(-50%) scale(1);
+}
+
+/* ACTIVE */
+.links a.active {
+  color: var(--russet);
+  opacity: 1;
+}
+
+/* SIGN IN */
+.start-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--camel),
+    var(--orange)
+  );
   color: white;
   font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+
+  box-shadow: 0 6px 16px rgba(196, 102, 31, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(196, 102, 31, 0.45);
+}
+
+.start-btn:active {
+  transform: scale(0.96);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .navbar {
+    top: 10px;
+    width: calc(100% - 32px);
+    padding: 10px 20px;
+  }
+
+  .links {
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
 }

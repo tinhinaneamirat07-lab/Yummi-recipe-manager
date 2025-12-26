@@ -1,6 +1,13 @@
+import { useEffect, useState } from "react";
 import "./Hero.css";
 
 export default function HeroFeatures() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   const features = [
     {
       id: "sweet-recipes",
@@ -20,29 +27,31 @@ export default function HeroFeatures() {
   ];
 
   return (
-    <section className="hero-features">
+    <section className={`hero-features ${loaded ? "show" : ""}`}>
       {/* HERO */}
       <div className="hero">
         <h1>Cook Smarter</h1>
         <h1 className="accent">Eat Better</h1>
+
         <h2>
           Make cooking easier. Save your favorite recipes, plan your meals, and
           organize your shopping.
         </h2>
-        <input type="text" placeholder="Search recipes..." />
+
+        <div className="search-box">
+          <input type="text" placeholder="Search recipes..." />
+        </div>
       </div>
 
       {/* FEATURES */}
       <div className="features">
         {features.map((f) => (
-          <div key={f.id} className="feature">
-            <a href={`#${f.id}`} className="img-box">
-              <img src={f.img} alt={f.title} />
-              <div className="overlay">
-                <h3>{f.title}</h3>
-              </div>
-            </a>
-          </div>
+          <a key={f.id} href={`#${f.id}`} className="feature">
+            <img src={f.img} alt={f.title} />
+            <div className="overlay">
+              <h3>{f.title}</h3>
+            </div>
+          </a>
         ))}
       </div>
     </section>

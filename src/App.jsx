@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-
 // components
 import Navbar from "./components/navbar/Navbar"
 import Hero from "./components/Hero/Hero.jsx"
@@ -10,11 +9,7 @@ import Footer from "./components/footer/Footer"
 // pages
 import Login from "./pages/Login"
 import Planner from "./components/planner/Planner"
-
-// images
-import features1 from "./assets/pics/Features1.jpg"
-import features2 from "./assets/pics/Features2.jpeg"
-import france from "./assets/pics/france.jpg"
+import Profile from "./pages/Profile"
 
 import "./App.css"
 
@@ -30,21 +25,20 @@ function App() {
           element={
             <>
               <Hero />
-
-             
-
               <Recipes />
-
               <Footer />
             </>
           }
         />
 
-        {/* PLANNER PAGE */}
+        {/* PLANNER */}
         <Route path="/planner" element={<Planner />} />
 
         {/* LOGIN */}
         <Route path="/login" element={<Login />} />
+
+        {/* PROFILE */}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   )
